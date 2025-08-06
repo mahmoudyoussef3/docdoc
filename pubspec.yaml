@@ -1,0 +1,52 @@
+name: docdoc
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  get_it: ^8.2.0
+  json_annotation: ^4.9.0
+  dio: ^5.8.0+1
+  retrofit: ^4.6.0
+  retrofit_generator: ^9.6.0
+  pretty_dio_logger: ^1.4.0
+  intl: ^0.20.2
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.2.0
+  flutter_bloc: ^9.1.1
+  dartz: ^0.10.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+  json_serializable: ^6.9.5
+
+  build_runner: ^2.4.15
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/svgs/
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+
