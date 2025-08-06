@@ -1,16 +1,5 @@
-# docdoc
+## 🧠 System Design of the App
 
-A new Flutter project.
+The diagram below illustrates the folder structure and how the app is architected using core layers, features, and dependency injection.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![System Design](assets/images/9f03c748-b9b0-453a-8013-3ba246d3c2c5.jpg)
