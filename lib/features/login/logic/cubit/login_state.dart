@@ -11,7 +11,7 @@ class LoginSuccess extends LoginState {
   LoginSuccess(this.data);
 }
 
-class LoginError<T> extends LoginState {
+class LoginError extends LoginState {
   final String error;
   LoginError(this.error);
 }

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:docdoc/features/login/data/models/login_response_body.dart';
 import 'package:retrofit/retrofit.dart';
 import '../../features/login/data/models/login_request_body.dart';
+import '../../features/signup/data/models/signup_request_body.dart';
 import 'api_constants.dart';
 //this class called _ApiService will be generated using retrofit package
 part 'api_service.g.dart';
@@ -14,6 +15,9 @@ abstract class ApiService {
   Future<LoginResponseBody> login(
       @Body() LoginRequestBody loginRequestBody,
       );
-
+@POST(ApiConstants.signup)
+  Future<LoginResponseBody>signup(
+    @Body() SignupRequestBody signupDataModel,
+    );
 
 }

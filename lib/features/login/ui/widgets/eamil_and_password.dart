@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../logic/cubit/login_cubit.dart';
 import 'password_validations.dart';
 
 class EmailAndPassword extends StatefulWidget {
@@ -21,7 +23,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool hasMinLength = false;
 
   late TextEditingController passwordController;
-
+@override
+  void initState() {
+    passwordController = context.read<LoginCubit>().passwordController;
+    setupPasswordControllerListener();
+    super.initState();
+  }
 
 
   void setupPasswordControllerListener() {
@@ -40,9 +47,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         children: [
           AppTextFormField(
+            controller: context.read<LoginCubit>().emailController,
             hintText: 'Email',
             validator: (value) {
               if (value == null ||
@@ -54,6 +63,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(18),
           AppTextFormField(
+            controller: context.read<LoginCubit>().passwordController,
             hintText: 'Password',
             isObscureText: isObscureText,
             suffixIcon: GestureDetector(

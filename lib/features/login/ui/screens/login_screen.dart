@@ -1,15 +1,15 @@
+import 'package:docdoc/features/login/data/models/login_request_body.dart';
+import 'package:docdoc/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../widgets/don`t_have_account_text.dart';
 import '../widgets/eamil_and_password.dart';
+import '../widgets/login_bloc_listener.dart';
 import '../widgets/terms_and_conditions.dart';
-
-
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -50,13 +50,14 @@ class LoginScreen extends StatelessWidget {
                       buttonText: "Login",
                       textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
+                        onLoginButtonClicked(context);
                       },
                     ),
                     verticalSpace(16),
                     const TermsAndConditionsText(),
                     verticalSpace(60),
                     const DontHaveAccountText(),
-                 //   const LoginBlocListener(),
+                    const LoginBlocListener(),
                   ],
                 ),
               ],
@@ -67,5 +68,13 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
+  void onLoginButtonClicked(BuildContext context) {
+    var loginCubit = context.read<LoginCubit>();
 
+    if (loginCubit.formKey.currentState!.validate()) {
+      loginCubit.emitLoginStates(LoginRequestBody(
+          email: loginCubit.emailController.text,
+          password: loginCubit.passwordController.text));
+    }
+  }
 }
